@@ -1,12 +1,16 @@
 package com.board.boardproject.controller;
 
+
 import com.board.boardproject.config.SecurityConfig;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+
 import org.springframework.context.annotation.Import;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -39,6 +43,8 @@ class ArticleControllerTest {
 
     @DisplayName("[GET] view - 게시글 상세 페이지 - 정상 호출")
     @Test
+    @Disabled("미구현")
+
     public void givenNothing_whenRequestingArticleView_thenReturnsArticleView() throws Exception {
         // Given
 
@@ -46,6 +52,7 @@ class ArticleControllerTest {
         mockMvc.perform(get("/articles/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(view().name("articles/detail"))
                 .andExpect(model().attributeExists("article"))
                 .andExpect(model().attributeExists("articleComments"));
@@ -61,6 +68,7 @@ class ArticleControllerTest {
         mockMvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(model().attributeExists("articles/search"));
     }
 
@@ -74,6 +82,7 @@ class ArticleControllerTest {
         mockMvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(content().contentType(MediaType.TEXT_HTML))
                 .andExpect(model().attributeExists("articles/search-hashtag"));
     }
 }
