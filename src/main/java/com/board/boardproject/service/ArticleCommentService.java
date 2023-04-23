@@ -17,12 +17,15 @@ public class ArticleCommentService {
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
 
-    public List<ArticleCommentDto> searchArticleComment(Long id) {
+    public List<ArticleCommentDto> searchArticleComments(Long id) {
         return List.of();
     }
 
     public void saveArticleComment(ArticleCommentDto dto){
 
+    }
+
+    public void updateArticleComment(ArticleCommentDto dto) {
     }
 
     public void deleteArticleComment(Long articleCommentId) {
