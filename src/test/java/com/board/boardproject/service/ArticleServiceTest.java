@@ -35,6 +35,20 @@ class ArticleServiceTest {
 
     @Mock private ArticleRepository articleRepository;
 
+    @DisplayName("게시글 수를 조회하면, 게시글 수를 반환한다")
+    @Test
+    void givenNothing_whenCountingArticles_thenReturnsArticleCount() {
+        // Given
+        long expected = 0L;
+        given(articleRepository.count()).willReturn(expected);
+
+        // When
+        long actual = sut.getArticleCount();
+
+        // Then
+        assertThat(actual).isEqualTo(expected);
+        then(articleRepository).should().count();
+    }
      @Test
      @DisplayName("검색어 없이 게시글을 검색하면, 게시글 페이지를 반환한다.")
      void givenNoSearchParameters_whenSearchingArticles_thenReturnsArticlePage() {
@@ -91,7 +105,7 @@ class ArticleServiceTest {
     @Test
     void givenNonexistentArticleId_whenSearchingArticle_thenThrowsException() {
         // Given
-        Long articleId = 0L;
+        Long articleId = 1L;
         given(articleRepository.findById(articleId)).willReturn(Optional.empty());
 
         // When
