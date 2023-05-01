@@ -306,11 +306,7 @@ class ArticleServiceTest {
                 "password",
                 "guk@mail.com",
                 "guk",
-                "This is memo",
-                LocalDateTime.now(),
-                "guk",
-                LocalDateTime.now(),
-                "guk"
+                "This is memo"
         );
     }
 }
