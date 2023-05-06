@@ -1,10 +1,10 @@
 -- 테스트 계정
 -- TODO: 테스트용이지만 비밀번호가 노출된 데이터 세팅이므로 개선 필요
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by)
-values ('baek', '1234', 'baek', 'baek@mail.com', 'I am Baek.', now(), 'baek', now(), 'baek');
+values ('baek', '{noop}1234', 'baek', 'baek@mail.com', 'I am Baek.', now(), 'baek', now(), 'baek');
 
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by)
-values ('test', '1234', 'test', 'test@mail.com', 'I am Test.', now(), 'test', now(), 'test');
+values ('test', '{noop}1234', 'test', 'test@mail.com', 'I am Test.', now(), 'test', now(), 'test');
 
 -- 게시글 100개
 insert into article (user_id, title, content, hashtag, created_by, modified_by, created_at, modified_at) values ('baek','Suspendisse potenti.', 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 'Mauv', 'Sherrie', 'Helli', '2023-01-16 08:43:41', '2022-07-21 10:55:47');
