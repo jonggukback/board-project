@@ -14,10 +14,15 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3308/board?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${POSTGRESQL_URL}
+    username: ${POSTGRESQL_NAME}
+    password: ${POSTGRESQL_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+#    datasource:
+#      url: jdbc:mysql://localhost:3308/board?useSSL=false&allowPublicKeyRetrieval=true
+#      username: root
+#      password: 1234
+#      driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf3.decoupled-logic: true
 
 
@@ -31,7 +36,7 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 100
-        #dialect: org.hibernate.dialect.MySQL8Dialect
+        #dialect: org.hibernate.dialect.PostgreSQLDialect
   h2:
     console:
       enabled: true
@@ -45,15 +50,3 @@ spring:
       detection-strategy: annotated
 
 ---
-
-#spring:
-#  config:
-#    activate:
-#      on-profile: testdb
-#  datasource:
-#    url: jdbc:h2:mem:board;mode=mysql
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#  sql:
-#    init:
-#      mode: always
-#  test.database.replace: none
